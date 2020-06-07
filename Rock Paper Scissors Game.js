@@ -1,13 +1,7 @@
 const getUserChoice = userInput => { 
   userInput = userInput.toLowerCase();
-  if (userInput === 'rock' || userInput === 'paper' || userInput === 'scissors') {
   return userInput;
-  } 
-  else {
-    console.log('Error. User entered: ' + '[' + userInput + ']. ' + 'Please enter rock, paper, or scissors.');
-    return;
-  }
-}
+};
  const getComputerChoice = randomNumber => {
    randomNumber = Math.floor(Math.random() * 3);
 switch (randomNumber) {
@@ -36,13 +30,16 @@ const determineWinner = (userChoice,computerChoice) => {
    }
 };
 const playGame = () => {
-  const userChoice = getUserChoice('Paper');
+  const userChoice = getUserChoice('');
   const computerChoice = getComputerChoice();
-  if (userChoice === ('paper'||'rock'||'scissors')) {
+  if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
   console.log('User chose: ' + userChoice);
   console.log('Computer chose: ' + computerChoice);
   console.log(determineWinner(userChoice,computerChoice));
-  } 
+  }  else {
+    console.log('Error. User entered: ' + '[' + userChoice + ']. ' + 'Please enter rock, paper, or scissors.');
+    return;
+  }
 }
 playGame();
 
