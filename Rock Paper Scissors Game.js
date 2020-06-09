@@ -25,14 +25,16 @@ const determineWinner = (userChoice,computerChoice) => {
     return 'Computer wins!';
   } else if (userChoice === 'paper' && computerChoice == 'scissors') {
    return 'Computer wins!';
-    } else {
+  }  else if (userChoice === 'bomb') {
    return 'User wins!';
-   }
+   } else {
+   return 'User wins!';
+  }
 };
 const playGame = () => {
-  const userChoice = getUserChoice('');
+  const userChoice = getUserChoice('bomb');
   const computerChoice = getComputerChoice();
-  if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors') {
+  if (userChoice === 'rock' || userChoice === 'paper' || userChoice === 'scissors'|| userChoice === 'bomb') {
   console.log('User chose: ' + userChoice);
   console.log('Computer chose: ' + computerChoice);
   console.log(determineWinner(userChoice,computerChoice));
